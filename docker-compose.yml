@@ -9,7 +9,7 @@ registry:
     - "./registry/storage:/var/lib/registry:rw"
 
 auth:
-  image: cesanta/docker_auth
+  image: erikrodhe/docker_auth
   entrypoint: /start.sh
   ports:
     - "5001:5001"
@@ -17,11 +17,11 @@ auth:
     - ldap:ldap
   volumes:
     - "./auth/start.sh:/start.sh:ro"
-    - "./auth/config:/config:ro" 
+    - "./auth/config:/config:ro"
     - "./auth/logs:/logs:rw"
     - "./certs:/certs:ro"
 
 ldap:
   build: ./ldap
-  expose:
-    - "389"
+  ports:
+    - "389:389"

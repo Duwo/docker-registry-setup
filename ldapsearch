@@ -1,0 +1,1 @@
+ldapsearch -H ldap://localhost:389 -D "cn=admin,dc=example,dc=com" -w password -b "uid=mozart,ou=musicians,dc=example,dc=com"
